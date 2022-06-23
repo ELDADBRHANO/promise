@@ -94,17 +94,30 @@ function btnCallUrl() {
 
 
 
-
-async function getPlaceKeanu() {
-  try {
-    await fetch("150/200/https:placekeanu.com").then((data)=>{
-      div_id1.innerHTML=data
-      console.log(data);
-    })
+function holdPlaceKeanu() {
+  async function getPlaceKeanu() {
+    try {
+      btn4.disabled=true;
+      await fetch("150/200/https:placekeanu.com").then((data)=>{
+      div_id1.innerHTML= `<img style="width:20vw;" src="imges/loading.gif"/>`
+        div_id1.innerHTML=data
+        console.log(data);
+      })
+    }
+     catch (error) {
+      div_id1.innerHTML=error
+    }
+    finally{
+      div_id1.innerHTML= ""
+      btn4.disabled=false;
+    }
   }
-   catch (error) {
-    div_id1.innerHTML=error
-  }
-  finally{}
+  getPlaceKeanu()
+  
 }
-getPlaceKeanu()
+
+
+
+
+
+
