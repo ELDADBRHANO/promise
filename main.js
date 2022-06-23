@@ -76,13 +76,35 @@ function playGetSeif5() {
 function btnCallUrl() {
   async function callUrl() {
     try {
+      div_id.innerHTML= `<img style="width:20vw;" src="imges/loading.gif"/>`
+      btn3.disabled=true;
       await fetch("https:/moviesmern.herokuapp.com/movies/all").then((data) => {
         console.log(data);
       });
-    } catch (error) {
+    } 
+    catch (error) {
       console.log(error);
     } finally {
+      btn3.disabled=false;
+      div_id.innerHTML= ""
     }
   }
   callUrl();
 }
+
+
+
+
+async function getPlaceKeanu() {
+  try {
+    await fetch("150/200/https:placekeanu.com").then((data)=>{
+      div_id1.innerHTML=data
+      console.log(data);
+    })
+  }
+   catch (error) {
+    div_id1.innerHTML=error
+  }
+  finally{}
+}
+getPlaceKeanu()
