@@ -97,9 +97,9 @@ function btnCallUrl() {
 function holdPlaceKeanu() {
   async function getPlaceKeanu() {
     try {
+      div_id1.innerHTML= `<img style="width:20vw;" src="imges/loading.gif"/>`
       btn4.disabled=true;
       await fetch("150/200/https:placekeanu.com").then((data)=>{
-      div_id1.innerHTML= `<img style="width:20vw;" src="imges/loading.gif"/>`
         div_id1.innerHTML=data
         console.log(data);
       })
@@ -119,5 +119,17 @@ function holdPlaceKeanu() {
 
 
 
+async function getApiJikan() {
+  try {
+    await fetch("https://api.jikan.moe/v4/anime").then((response)=>{
+      response. for
+    })
+  }
+   catch (error) {
+    console.log(error);
+    
+  }finally{}
+}
+getApiJikan()
 
 
