@@ -121,9 +121,9 @@ function holdPlaceKeanu() {
 
 async function getApiJikan() {
   try {
-    await fetch("https://api.jikan.moe/v4/anime").then((response)=>{
-      console.log(response);
-    })
+   return  await fetch("https://api.jikan.moe/v4/anime").then(response=>
+      response.json()
+    ).then((res)=>console.log(res.data))
   }
    catch (error) {
     console.log(error);
