@@ -122,7 +122,7 @@ function holdPlaceKeanu() {
 async function getApiJikan() {
   try {
     await fetch("https://api.jikan.moe/v4/anime").then((response)=>{
-      response. for
+      console.log(response);
     })
   }
    catch (error) {
