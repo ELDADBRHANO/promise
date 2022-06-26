@@ -119,17 +119,43 @@ function holdPlaceKeanu() {
 
 
 
-async function getApiJikan() {
-  try {
-   return  await fetch("https://api.jikan.moe/v4/anime").then(response=>
-      response.json()
-    ).then((res)=>console.log(res.data))
-  }
-   catch (error) {
-    console.log(error);
+// async function getApiJikan() {
+//   try {
+//    return  await fetch("https://api.jikan.moe/v4/anime").then(response=>
+//       response.json()
+//     ).then((res)=>console.log(res.data))
+//   }
+//    catch (error) {
+//     console.log(error);
     
-  }finally{}
+//   }finally{}
+// }
+// getApiJikan()
+
+
+
+
+
+
+
+
+
+async function returnMoviesName() {
+  try {
+   return await fetch("https:/moviesmern.herokuapp.com/movies/all")
+    .then(res => res.json())
+  } 
+  catch (error) {
+    console.log(error);
+  }
+  finally{}
 }
-getApiJikan()
 
 
+function printMovies() {
+  returnMoviesName()
+  .then(res=>res.data.forEach(item => {
+    div_id2.innerHTML += `<ul><li>${item.movieName}</li><img style='width:20vw;height:20vh;' src='${item.image}'</ul>`
+  }))
+}
+printMovies()
