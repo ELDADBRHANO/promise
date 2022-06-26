@@ -157,5 +157,43 @@ function printMovies() {
   .then(res=>res.data.forEach(item => {
     div_id2.innerHTML += `<ul><li>${item.movieName}</li><img style='width:20vw;height:20vh;' src='${item.image}'</ul>`
   }))
+  .catch((error)=>{console.log(error);})
 }
 printMovies()
+
+
+
+
+
+
+
+
+
+  async function addToJacobSite() {
+    const obj ={
+      movie:{
+        image:"https://www.edb.co.il/photos/170612021_poster01.poster.jpg",
+        linkToMovie:"https://www.theblackphonemovie.com/",
+        movieName:"blackPhone",
+        rating:"5",
+        synopsis:"good movie 2 m views over one weekend",
+      }
+    }
+    try {
+      await fetch("https:/moviesmern.herokuapp.com/movies/saveMovie",{
+        method:"POST",
+        body:JSON.stringify(obj),
+        headers:{
+          'Content-Type':'application/json'
+        }
+    })
+  } 
+  catch (error) {
+    console.log(error);
+  }
+  finally{}
+}
+
+function addMyMovie() {
+  addToJacobSite()
+}
